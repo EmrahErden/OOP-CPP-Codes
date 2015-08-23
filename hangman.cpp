@@ -1,10 +1,10 @@
 #include <string>
 #include <iostream>
 #include <cctype>	//used for lower case conversion
-#include <cstdio>	//used for exit
+
 using namespace std;
 
-#define MAX_NUM_WRONG 3
+#define MAX_NUM_WRONG 8
 
 class guesser
 {
