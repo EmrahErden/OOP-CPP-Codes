@@ -55,10 +55,13 @@ void guesser::guessOne(char c)
 {
 	char theLetter;
 
+	do
+	{
 	cout << "Please guess a letter : ";
 	cin >> theLetter;
-
 	_currentLetter = tolower(theLetter);
+	}while(_guessedLetters.find(_currentLetter) != std::string::npos);
+
 	_guessedLetters += _currentLetter;
 
 	if(_secretWord.find(_currentLetter) != std::string::npos)
