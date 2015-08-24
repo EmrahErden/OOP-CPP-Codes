@@ -1,3 +1,5 @@
+//g++ -std=c++11 ticTacToe1.cpp -o ticTacToe1
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -153,17 +155,24 @@ int main(void)
 	//displaying the result
 	if(board.checkWin())
 	{
-		if(board.getMove()==1)	//remember move changes after the play!!
-			cout << "Congratulations We've got a winner!!\n\n";
+		if(board.getMove()==1)	//remember, move changes after the play!!
+		{
+			cout << "No, no! It cannot be! Somehow you tricked me, human.\n";
+			cout << "But never again! I, the computer, so swear it!\n\n";
+		}
 		else
-			cout << "Lol!! LOSER!!!\n\n";
+		{
+			cout << "As I predicted, human, I am triumphant once more -- proof\n";
+			cout << "that computers are superior to humans in all regards.\n\n";
+		}
 		return 0;
 			
 	}
 	
 	if(board.checkDraw())
 	{
-		cout << "Seems like it is draw...\n\n";
+		cout << "You were most lucky, human, and somehow managed to tie me.\n";
+		cout << "Celebrate. . . for this is the best you will ever achieve.\n\n";
 		return 0;
 	}
 
