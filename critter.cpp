@@ -5,7 +5,7 @@ using namespace std;
 class critter
 {
 private:
-	int _hunger
+	int _hunger;
 public:
 	void greet(void) {cout << "Hello! I'm a critter and my hunger level is: " << _hunger << "\n";}
 	void setHunger(int a) {_hunger=a;}
