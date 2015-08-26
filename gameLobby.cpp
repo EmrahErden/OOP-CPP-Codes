@@ -1,4 +1,6 @@
 //game lobby with dynamic memory implementation
+//g++ gameLobby.cpp -std=c++11 -o gameLobby
+
 #include <iostream>
 #include <vector>
 #include <string>
@@ -13,7 +15,7 @@ private:
 public:
 	player(const string &n) : _name(n), _nextPlayer(0) {};
 	player *getNextPlayer(void) {return _nextPlayer;}
-    void setNextPlayer(player* b) {_nextPlayer = b;}
+    	void setNextPlayer(player* b) {_nextPlayer = b;}
 	string getName(void){return _name;}
 };//class player
 
@@ -21,12 +23,20 @@ class lobby
 {
 public:
 	void addPlayer(string a);
-    void removePlayer(void);
+    	void removePlayer(void);
 	void display(void);
+	void lobbyClear(void);
 private:
 	player* _firstPlayer = 0;
 };//class lobby
 
+void lobby::lobbyClear(void)
+{
+	while(_firstPlayer!=0)
+	{
+		removePlayer();
+	}
+}
 
 //member function removes the player at the head of the line
 void lobby::removePlayer(void)
@@ -36,7 +46,7 @@ void lobby::removePlayer(void)
         cout << "Lobby is empty. There is no one to remove!!\n";
     }else
     {
-            cout << "Removing the first player in the que...\n";
+            cout << "Removing the first player in the que...\n\n";
             player* temp = _firstPlayer;
             _firstPlayer = temp->getNextPlayer();
             delete temp;
@@ -64,7 +74,7 @@ void lobby::addPlayer(string a)
 
 void lobby::display(void)
 {
-    cout << "Displaying the players in the lobby:\n";
+    	cout << "Displaying the players in the lobby:\n";
 	player* temp = _firstPlayer;
 	int counter = 0;
 	while(temp->getNextPlayer()!=0)
@@ -73,20 +83,21 @@ void lobby::display(void)
 		cout << counter << "- " << temp->getName() << "\n";
 		temp = temp->getNextPlayer();
 	}
-    counter++;
-    cout << counter << "- " << temp->getName() << "\n\n";
+    	counter++;
+    	cout << counter << "- " << temp->getName() << "\n\n";
 }
 
 int main(void)
 {
 	lobby kurbaga;
-	kurbaga.addPlayer("mahmood");
-	kurbaga.addPlayer("zekai");
-	kurbaga.addPlayer("hamidoo");
-    kurbaga.addPlayer("tuncay");
+	kurbaga.addPlayer("gumba");
+	kurbaga.addPlayer("lampalut");
+	kurbaga.addPlayer("soajan");
+    	kurbaga.addPlayer("lord dark");
+    	kurbaga.addPlayer("dest");
 	kurbaga.display();
 	kurbaga.removePlayer();
-    cout << "\n";
 	kurbaga.display();
+	kurbaga.lobbyClear();
 }
 
